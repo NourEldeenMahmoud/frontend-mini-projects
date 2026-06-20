@@ -1,205 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frontend mini projects — a collection of responsive landing pages built with Tailwind CSS.">
-  <title>Frontend Mini Projects</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #f8f9fa;
-      color: #1a1a2e;
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Frontend mini projects — a collection of responsive landing pages built with Tailwind CSS.">
+<meta name="color-scheme" content="dark">
+<title>Frontend Mini Projects</title>
+<style>
+  /* ── reset ── */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    background:#0a0a12;
+    color:#f1f5f9;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
 
-    /* header */
-    .site-header {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 0;
-    }
-    .site-header h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .site-header h1 span { color: #6b7280; font-weight: 400; }
-    .site-header p {
-      margin-top: 0.4rem;
-      color: #6b7280;
-      font-size: 0.95rem;
-      max-width: 520px;
-    }
+  /* ── grain overlay ── */
+  body::after{
+    content:'';
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:9999;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:repeat;
+    background-size:256px 256px;
+  }
 
-    /* thin rule */
-    .rule {
-      max-width: 1040px;
-      margin: 2rem auto 0;
-      padding: 0 1.5rem;
-    }
-    .rule hr {
-      border: 0;
-      border-bottom: 1px solid #e5e7eb;
-    }
+  /* ── nav ── */
+  nav{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;
+    padding:1rem 2rem;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(10,10,18,.75);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s;
+  }
+  nav.scrolled{border-bottom-color:#2a2a3a}
+  .nav-title{font-size:.85rem;font-weight:600;letter-spacing:.02em;color:#94a3b8}
+  .nav-github svg{width:20px;height:20px;fill:#94a3b8;transition:fill .25s}
+  .nav-github:hover svg{fill:#f59e0b}
 
-    /* grid */
-    .projects {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    @media (min-width: 640px) {
-      .projects { grid-template-columns: 1fr 1fr; }
-    }
-    @media (min-width: 920px) {
-      .projects { grid-template-columns: 1fr 1fr 1fr; }
-    }
+  /* ── hero ── */
+  .hero{
+    min-height:70vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    padding:7rem 1.5rem 5rem;
+    position:relative;overflow:hidden;
+  }
+  /* floating glow orb */
+  .hero-glow{
+    position:absolute;
+    width:600px;height:600px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(245,158,11,.08) 0%,rgba(52,211,153,.04) 40%,transparent 70%);
+    top:-10%;left:50%;
+    transform:translateX(-50%);
+    animation:floatGlow 8s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+  @keyframes floatGlow{
+    0%{transform:translateX(-50%) translateY(0) scale(1)}
+    100%{transform:translateX(-50%) translateY(-40px) scale(1.12)}
+  }
+  .hero h1{
+    font-size:clamp(2rem,6vw,4rem);
+    font-weight:800;
+    letter-spacing:-.03em;
+    line-height:1.08;
+    position:relative;
+    animation:fadeUp .8s ease-out;
+  }
+  .hero h1 span{color:#f59e0b}
+  .hero p{
+    margin-top:.75rem;
+    font-size:clamp(.9rem,1.5vw,1.1rem);
+    color:#64748b;
+    max-width:540px;
+    position:relative;
+    animation:fadeUp .8s ease-out .15s both;
+  }
+  .hero-line{
+    margin-top:2rem;
+    display:flex;align-items:center;gap:.75rem;
+    position:relative;
+    animation:fadeUp .8s ease-out .3s both;
+  }
+  .hero-line hr{width:80px;border:0;border-bottom:1px solid #2a2a3a}
+  .hero-line .dot{width:6px;height:6px;border-radius:50%;background:#f59e0b;flex-shrink:0}
 
-    /* card */
-    .card {
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-      transition: box-shadow 0.25s, transform 0.2s;
-    }
-    .card:hover {
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      transform: translateY(-3px);
-    }
-    .card-image {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      display: block;
-      background: #e5e7eb;
-    }
-    .card-body {
-      padding: 1.25rem 1.25rem 1.5rem;
-    }
-    .card-body h2 {
-      font-size: 1.05rem;
-      font-weight: 650;
-      margin-bottom: 0.25rem;
-    }
-    .card-body .tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: #6b7280;
-      margin-bottom: 0.35rem;
-    }
-    .card-body p {
-      font-size: 0.875rem;
-      color: #6b7280;
-      line-height: 1.55;
-    }
-    .card-body .link {
-      display: inline-block;
-      margin-top: 0.9rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #2563eb;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .card-body .link:hover { border-bottom-color: #2563eb; }
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+  }
 
-    /* footer */
-    .site-footer {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0 1.5rem 2.5rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-  </style>
+  /* ── section ── */
+  .projects{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 1.5rem 5rem;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.75rem;
+  }
+  @media(min-width:720px){
+    .projects{grid-template-columns:1fr 1fr}
+  }
+
+  /* ── card ── */
+  .card{
+    background:#141420;
+    border:1px solid #2a2a3a;
+    border-radius:14px;
+    overflow:hidden;
+    transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{
+    transform:translateY(-5px);
+    border-color:#f59e0b;
+    box-shadow:0 20px 50px -12px rgba(245,158,11,.12);
+  }
+  .card-img{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    display:block;
+    background:#1a1a2e;
+    position:relative;
+    transition:transform .5s ease;
+  }
+  .card:hover .card-img{transform:scale(1.02)}
+  .card-img-wrapper{
+    position:relative;
+    overflow:hidden;
+  }
+  .card-img-wrapper::after{
+    content:'';
+    position:absolute;inset:0;
+    box-shadow:inset 0 -40px 30px -20px rgba(10,10,18,.6);
+    pointer-events:none;
+  }
+  .card-body{
+    padding:1.25rem 1.25rem 1.5rem;
+    flex:1;
+    display:flex;flex-direction:column;
+  }
+  .card-badge{
+    display:inline-flex;
+    align-self:flex-start;
+    font-size:.65rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    padding:.2rem .65rem;
+    border-radius:20px;
+    background:rgba(245,158,11,.1);
+    color:#f59e0b;
+    margin-bottom:.5rem;
+    transition:background .3s;
+  }
+  .card:hover .card-badge{background:rgba(245,158,11,.18)}
+  .card h2{
+    font-size:1.125rem;
+    font-weight:700;
+    letter-spacing:-.01em;
+    line-height:1.3;
+  }
+  .card-desc{
+    margin-top:.3rem;
+    font-size:.875rem;
+    color:#64748b;
+    line-height:1.55;
+    flex:1;
+  }
+  .card-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.35rem;
+    margin-top:.9rem;
+  }
+  .card-tags span{
+    font-size:.655rem;
+    padding:.15rem .5rem;
+    border-radius:4px;
+    background:#1e1e32;
+    color:#94a3b8;
+    border:1px solid #2a2a3a;
+    transition:all .3s;
+  }
+  .card:hover .card-tags span{
+    background:#2a2a42;
+    border-color:#3a3a52;
+    color:#cbd5e1;
+  }
+  .card-link{
+    display:inline-flex;align-items:center;gap:.4rem;
+    margin-top:.9rem;
+    font-size:.85rem;
+    font-weight:600;
+    color:#f59e0b;
+    transition:gap .3s;
+  }
+  .card-link .arrow{transition:transform .3s;display:inline-block}
+  .card:hover .card-link{gap:.6rem}
+  .card:hover .arrow{transform:translateX(4px)}
+
+  /* ── footer ── */
+  footer{
+    text-align:center;
+    padding:2rem 1.5rem 3rem;
+    border-top:1px solid #2a2a3a;
+    font-size:.8rem;
+    color:#64748b;
+  }
+  footer a{color:#94a3b8;text-decoration:underline;transition:color .25s}
+  footer a:hover{color:#f59e0b}
+
+  /* ── scroll nav ── */
+  /* adding border on scroll via IntersectionObserver, but fallback: just always show it */
+  nav{border-bottom-color:#2a2a3a}
+
+</style>
 </head>
 <body>
 
-  <header class="site-header">
-    <h1>Frontend <span>Mini Projects</span></h1>
-    <p>A small collection of responsive landing pages built while learning Tailwind CSS. Each project is self-contained and ready to run.</p>
-  </header>
+<!-- nav -->
+<nav>
+  <span class="nav-title">Frontend Mini Projects</span>
+  <a class="nav-github" href="https://github.com/NourEldeenMahmoud/frontend-mini-projects" target="_blank" rel="noopener" aria-label="GitHub">
+    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  </a>
+</nav>
 
-  <div class="rule"><hr></div>
+<!-- hero -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <h1>Frontend <span>Mini Projects</span></h1>
+  <p>A collection of responsive landing pages — built with Tailwind CSS</p>
+  <div class="hero-line">
+    <hr><div class="dot"></div><hr>
+  </div>
+</section>
 
-  <section class="projects">
+<!-- grid -->
+<section class="projects">
 
-    <a href="bookmark/" class="card">
-      <img class="card-image" src="bookmark/images/bookmark.png" alt="Bookmark landing page preview" loading="lazy">
-      <div class="card-body">
-        <div class="tag">Landing Page</div>
-        <h2>Bookmark</h2>
-        <p>Browser extension landing page with feature tabs, FAQ accordion, and responsive navigation.</p>
-        <span class="link">View Project &rarr;</span>
+  <a href="bookmark/" class="card">
+    <div class="card-img-wrapper">
+      <img class="card-img" src="bookmark/images/bookmark.png" alt="Bookmark landing page" loading="lazy">
+    </div>
+    <div class="card-body">
+      <span class="card-badge">Landing Page</span>
+      <h2>Bookmark</h2>
+      <p class="card-desc">Browser extension landing page with interactive feature tabs, FAQ accordion, and responsive navigation.</p>
+      <div class="card-tags">
+        <span>Tabs</span><span>Accordion</span><span>Custom Colors</span><span>Hamburger Menu</span><span>Responsive Nav</span>
       </div>
-    </a>
+      <span class="card-link">View Project <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
 
-    <a href="clipboard/" class="card">
-      <img class="card-image" src="clipboard/images/clipboard.png" alt="Clipboard landing page preview" loading="lazy">
-      <div class="card-body">
-        <div class="tag">Landing Page</div>
-        <h2>Clipboard</h2>
-        <p>App landing page with download CTAs, feature sections, and stats. Based on a Frontend Mentor challenge.</p>
-        <span class="link">View Project &rarr;</span>
+  <a href="clipboard/" class="card">
+    <div class="card-img-wrapper">
+      <img class="card-img" src="clipboard/images/clipboard.png" alt="Clipboard landing page" loading="lazy">
+    </div>
+    <div class="card-body">
+      <span class="card-badge">Landing Page</span>
+      <h2>Clipboard</h2>
+      <p class="card-desc">App landing page with download buttons, feature sections, and statistics. Based on a Frontend Mentor challenge.</p>
+      <div class="card-tags">
+        <span>Custom Colors</span><span>Download CTAs</span><span>Feature Sections</span>
       </div>
-    </a>
+      <span class="card-link">View Project <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
 
-    <a href="fylo/" class="card">
-      <img class="card-image" src="fylo/images/fylo.png" alt="Fylo landing page preview" loading="lazy">
-      <div class="card-body">
-        <div class="tag">Landing Page</div>
-        <h2>Fylo</h2>
-        <p>Dark-themed landing page with dark/light mode toggle, feature cards, and signup form.</p>
-        <span class="link">View Project &rarr;</span>
+  <a href="fylo/" class="card">
+    <div class="card-img-wrapper">
+      <img class="card-img" src="fylo/images/fylo.png" alt="Fylo landing page" loading="lazy">
+    </div>
+    <div class="card-body">
+      <span class="card-badge">Landing Page</span>
+      <h2>Fylo</h2>
+      <p class="card-desc">Dark-themed landing page with light/dark mode toggle, feature cards, testimonials, and email signup form.</p>
+      <div class="card-tags">
+        <span>Dark Mode</span><span>Light/Dark Toggle</span><span>Custom Colors</span><span>Form</span><span>Feature Cards</span>
       </div>
-    </a>
+      <span class="card-link">View Project <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
 
-    <a href="loopstudios/" class="card">
-      <img class="card-image" src="loopstudios/images/loopstudios.png" alt="Loopstudios landing page preview" loading="lazy">
-      <div class="card-body">
-        <div class="tag">Landing Page</div>
-        <h2>Loopstudios</h2>
-        <p>VR company landing page with interactive gallery grid, overlay navigation, and hover effects.</p>
-        <span class="link">View Project &rarr;</span>
+  <a href="loopstudios/" class="card">
+    <div class="card-img-wrapper">
+      <img class="card-img" src="loopstudios/images/loopstudios.png" alt="Loopstudios landing page" loading="lazy">
+    </div>
+    <div class="card-body">
+      <span class="card-badge">Landing Page</span>
+      <h2>Loopstudios</h2>
+      <p class="card-desc">VR company landing page with interactive gallery grid, overlay navigation, and hover effects.</p>
+      <div class="card-tags">
+        <span>CSS Grid</span><span>Hover Effects</span><span>Overlay Nav</span><span>Custom Fonts</span><span>Responsive Gallery</span>
       </div>
-    </a>
+      <span class="card-link">View Project <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
 
-    <a href="shortly/" class="card">
-      <img class="card-image" src="shortly/images/shortly.png" alt="Shortly landing page preview" loading="lazy">
-      <div class="card-body">
-        <div class="tag">Landing Page</div>
-        <h2>Shortly</h2>
-        <p>URL shortening service landing page with statistics cards, link form, and responsive menu.</p>
-        <span class="link">View Project &rarr;</span>
+  <a href="shortly/" class="card">
+    <div class="card-img-wrapper">
+      <img class="card-img" src="shortly/images/shortly.png" alt="Shortly landing page" loading="lazy">
+    </div>
+    <div class="card-body">
+      <span class="card-badge">Landing Page</span>
+      <h2>Shortly</h2>
+      <p class="card-desc">URL shortening service landing page with statistics cards, link shortening form, and responsive menu.</p>
+      <div class="card-tags">
+        <span>Form Input</span><span>Statistics Cards</span><span>Custom Colors</span><span>Responsive Menu</span><span>Hover States</span>
       </div>
-    </a>
+      <span class="card-link">View Project <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
 
-    <a href="testimonial-grid/" class="card">
-      <img class="card-image" src="testimonial-grid/images/testimonial-grid.png" alt="Testimonial grid preview" loading="lazy">
-      <div class="card-body">
-        <div class="tag">Grid Layout</div>
-        <h2>Testimonial Grid</h2>
-        <p>CSS Grid layout featuring testimonial cards with quotes, avatars, and color-coded sections.</p>
-        <span class="link">View Project &rarr;</span>
+  <a href="testimonial-grid/" class="card">
+    <div class="card-img-wrapper">
+      <img class="card-img" src="testimonial-grid/images/testimonial-grid.png" alt="Testimonial grid" loading="lazy">
+    </div>
+    <div class="card-body">
+      <span class="card-badge">Grid Layout</span>
+      <h2>Testimonial Grid</h2>
+      <p class="card-desc">CSS Grid layout featuring testimonial cards with quotes, avatars, and color-coded sections.</p>
+      <div class="card-tags">
+        <span>CSS Grid</span><span>Responsive Layout</span><span>Color-coded Cards</span><span>Quotations</span>
       </div>
-    </a>
+      <span class="card-link">View Project <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
 
-  </section>
+</section>
 
-  <footer class="site-footer">
-    <p>Built with Tailwind CSS &middot; <a href="https://github.com/NourEldeenMahmoud/frontend-mini-projects" style="color:#6b7280;text-decoration:underline;">GitHub</a></p>
-  </footer>
+<footer>
+  <p>Built with Tailwind CSS &middot; <a href="https://github.com/NourEldeenMahmoud/frontend-mini-projects" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
 
 </body>
 </html>
