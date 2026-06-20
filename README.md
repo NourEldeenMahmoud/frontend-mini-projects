@@ -1,52 +1,25 @@
 # Frontend Mini Projects
 
-A collection of 6 responsive landing pages built with Tailwind CSS — a practice showcase covering layouts, dark mode, forms, and interactive components.
+<br>
 
-👉 **Live site:** [noureldeenmahmoud.github.io/frontend-mini-projects](https://noureldeenmahmoud.github.io/frontend-mini-projects/)
+<div align="center">
+
+# 🌐 **[Live Site →](https://noureldeenmahmoud.github.io/frontend-mini-projects/)**
+
+A collection of 6 responsive landing pages built with Tailwind CSS.
+
+</div>
+
+<br>
 
 ## Projects
 
-### Bookmark
-![Bookmark screenshot](assets/index-bookmark.png)
+| | | |
+|---|---|---|
+| [![Bookmark](assets/index-bookmark.png)](./bookmark/)<br>**Bookmark**<br>*Tabs, accordion, responsive nav* | [![Shortly](assets/index-shortly.png)](./shortly/)<br>**Shortly**<br>*Form input, statistics cards* | [![Fylo](assets/index-fylo.png)](./fylo/)<br>**Fylo**<br>*Dark/light toggle, feature cards* |
+| [![Loopstudios](assets/index-loopstudios.png)](./loopstudios/)<br>**Loopstudios**<br>*Grid gallery, overlay nav, hover effects* | [![Testimonial Grid](assets/index-testimonial-grid.png)](./testimonial-grid/)<br>**Testimonial Grid**<br>*CSS Grid layout, color-coded cards* | [![Clipboard](assets/index-clipboard.png)](./clipboard/)<br>**Clipboard**<br>*Download CTAs, feature sections* |
 
-Tabs, accordion, hamburger menu, and responsive nav — a feature-rich landing page for a bookmark manager.
-
-[View Bookmark →](./bookmark/)
-
-### Shortly
-![Shortly screenshot](assets/index-shortly.png)
-
-URL shortening service with statistics cards, form input, hover states, and a fully responsive menu.
-
-[View Shortly →](./shortly/)
-
-### Fylo
-![Fylo screenshot](assets/index-fylo.png)
-
-Dark-themed landing page with light/dark mode toggle, feature cards, testimonials, and email signup form.
-
-[View Fylo →](./fylo/)
-
-### Loopstudios
-![Loopstudios screenshot](assets/index-loopstudios.png)
-
-VR company showcase with interactive CSS Grid gallery, overlay navigation, hover effects, and responsive design.
-
-[View Loopstudios →](./loopstudios/)
-
-### Testimonial Grid
-![Testimonial Grid screenshot](assets/index-testimonial-grid.png)
-
-Responsive CSS Grid layout with color-coded testimonial cards, quotes, and avatars.
-
-[View Testimonial Grid →](./testimonial-grid/)
-
-### Clipboard
-![Clipboard screenshot](assets/index-clipboard.png)
-
-App landing page with download CTAs, feature sections, and statistics — based on a Frontend Mentor challenge.
-
-[View Clipboard →](./clipboard/)
+<br>
 
 ## Run Locally
 
