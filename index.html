@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frontend mini projects — a collection of responsive landing pages built with Tailwind CSS.">
+  <title>Frontend Mini Projects</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* header */
+    .site-header {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 0;
+    }
+    .site-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .site-header h1 span { color: #6b7280; font-weight: 400; }
+    .site-header p {
+      margin-top: 0.4rem;
+      color: #6b7280;
+      font-size: 0.95rem;
+      max-width: 520px;
+    }
+
+    /* thin rule */
+    .rule {
+      max-width: 1040px;
+      margin: 2rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .rule hr {
+      border: 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    /* grid */
+    .projects {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 640px) {
+      .projects { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 920px) {
+      .projects { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    /* card */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+    .card-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      background: #e5e7eb;
+    }
+    .card-body {
+      padding: 1.25rem 1.25rem 1.5rem;
+    }
+    .card-body h2 {
+      font-size: 1.05rem;
+      font-weight: 650;
+      margin-bottom: 0.25rem;
+    }
+    .card-body .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #6b7280;
+      margin-bottom: 0.35rem;
+    }
+    .card-body p {
+      font-size: 0.875rem;
+      color: #6b7280;
+      line-height: 1.55;
+    }
+    .card-body .link {
+      display: inline-block;
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #2563eb;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .card-body .link:hover { border-bottom-color: #2563eb; }
+
+    /* footer */
+    .site-footer {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>Frontend <span>Mini Projects</span></h1>
+    <p>A small collection of responsive landing pages built while learning Tailwind CSS. Each project is self-contained and ready to run.</p>
+  </header>
+
+  <div class="rule"><hr></div>
+
+  <section class="projects">
+
+    <a href="bookmark/" class="card">
+      <img class="card-image" src="bookmark/images/bookmark.png" alt="Bookmark landing page preview" loading="lazy">
+      <div class="card-body">
+        <div class="tag">Landing Page</div>
+        <h2>Bookmark</h2>
+        <p>Browser extension landing page with feature tabs, FAQ accordion, and responsive navigation.</p>
+        <span class="link">View Project &rarr;</span>
+      </div>
+    </a>
+
+    <a href="clipboard/" class="card">
+      <img class="card-image" src="clipboard/images/clipboard.png" alt="Clipboard landing page preview" loading="lazy">
+      <div class="card-body">
+        <div class="tag">Landing Page</div>
+        <h2>Clipboard</h2>
+        <p>App landing page with download CTAs, feature sections, and stats. Based on a Frontend Mentor challenge.</p>
+        <span class="link">View Project &rarr;</span>
+      </div>
+    </a>
+
+    <a href="fylo/" class="card">
+      <img class="card-image" src="fylo/images/fylo.png" alt="Fylo landing page preview" loading="lazy">
+      <div class="card-body">
+        <div class="tag">Landing Page</div>
+        <h2>Fylo</h2>
+        <p>Dark-themed landing page with dark/light mode toggle, feature cards, and signup form.</p>
+        <span class="link">View Project &rarr;</span>
+      </div>
+    </a>
+
+    <a href="loopstudios/" class="card">
+      <img class="card-image" src="loopstudios/images/loopstudios.png" alt="Loopstudios landing page preview" loading="lazy">
+      <div class="card-body">
+        <div class="tag">Landing Page</div>
+        <h2>Loopstudios</h2>
+        <p>VR company landing page with interactive gallery grid, overlay navigation, and hover effects.</p>
+        <span class="link">View Project &rarr;</span>
+      </div>
+    </a>
+
+    <a href="shortly/" class="card">
+      <img class="card-image" src="shortly/images/shortly.png" alt="Shortly landing page preview" loading="lazy">
+      <div class="card-body">
+        <div class="tag">Landing Page</div>
+        <h2>Shortly</h2>
+        <p>URL shortening service landing page with statistics cards, link form, and responsive menu.</p>
+        <span class="link">View Project &rarr;</span>
+      </div>
+    </a>
+
+    <a href="testimonial-grid/" class="card">
+      <img class="card-image" src="testimonial-grid/images/testimonial-grid.png" alt="Testimonial grid preview" loading="lazy">
+      <div class="card-body">
+        <div class="tag">Grid Layout</div>
+        <h2>Testimonial Grid</h2>
+        <p>CSS Grid layout featuring testimonial cards with quotes, avatars, and color-coded sections.</p>
+        <span class="link">View Project &rarr;</span>
+      </div>
+    </a>
+
+  </section>
+
+  <footer class="site-footer">
+    <p>Built with Tailwind CSS &middot; <a href="https://github.com/NourEldeenMahmoud/frontend-mini-projects" style="color:#6b7280;text-decoration:underline;">GitHub</a></p>
+  </footer>
+
+</body>
+</html>
