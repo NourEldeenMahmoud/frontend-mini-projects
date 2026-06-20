@@ -2,6 +2,8 @@
 
 A collection of 6 responsive landing pages built with Tailwind CSS — a practice showcase covering layouts, dark mode, forms, and interactive components.
 
+👉 **Live site:** [noureldeenmahmoud.github.io/frontend-mini-projects](https://noureldeenmahmoud.github.io/frontend-mini-projects/)
+
 ## Projects
 
 ### Bookmark
