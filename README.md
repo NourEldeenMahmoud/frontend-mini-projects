@@ -1,48 +1,63 @@
-# Tailwind CSS Course Projects
+# Frontend Mini Projects
 
-A collection of responsive landing pages built with **Tailwind CSS**. Each project is self-contained with its own `package.json`, `tailwind.config.js`, and compiled stylesheet.
+A collection of 6 responsive landing pages built with Tailwind CSS — a practice showcase covering layouts, dark mode, forms, and interactive components.
 
 ## Projects
 
-| Project | Description |
-|---------|-------------|
-| [Bookmark](./bookmark/) | Bookmark manager landing page with tabs and accordion |
-| [Clipboard](./clipboard/) | Clipboard app landing page (Frontend Mentor challenge) |
-| [Fylo](./fylo/) | Dark-themed landing page with dark mode toggle |
-| [Loopstudios](./loopstudios/) | VR/immersive experiences company landing page |
-| [Shortly](./shortly/) | URL shortening service landing page |
-| [Testimonial Grid](./testimonial-grid/) | CSS Grid testimonial card layout |
+### Bookmark
+![Bookmark screenshot](assets/index-bookmark.png)
 
-## Getting Started
+Tabs, accordion, hamburger menu, and responsive nav — a feature-rich landing page for a bookmark manager.
 
-Each project is independent. To run any of them:
+[View Bookmark →](./bookmark/)
+
+### Shortly
+![Shortly screenshot](assets/index-shortly.png)
+
+URL shortening service with statistics cards, form input, hover states, and a fully responsive menu.
+
+[View Shortly →](./shortly/)
+
+### Fylo
+![Fylo screenshot](assets/index-fylo.png)
+
+Dark-themed landing page with light/dark mode toggle, feature cards, testimonials, and email signup form.
+
+[View Fylo →](./fylo/)
+
+### Loopstudios
+![Loopstudios screenshot](assets/index-loopstudios.png)
+
+VR company showcase with interactive CSS Grid gallery, overlay navigation, hover effects, and responsive design.
+
+[View Loopstudios →](./loopstudios/)
+
+### Testimonial Grid
+![Testimonial Grid screenshot](assets/index-testimonial-grid.png)
+
+Responsive CSS Grid layout with color-coded testimonial cards, quotes, and avatars.
+
+[View Testimonial Grid →](./testimonial-grid/)
+
+### Clipboard
+![Clipboard screenshot](assets/index-clipboard.png)
+
+App landing page with download CTAs, feature sections, and statistics — based on a Frontend Mentor challenge.
+
+[View Clipboard →](./clipboard/)
+
+## Run Locally
+
+Each project is independent:
 
 ```bash
-cd project-folder
+cd project-name
 npm install
 npm run watch
 ```
 
-Then open `index.html` in your browser. The `watch` command will rebuild `css/style.css` whenever you make changes.
+Then open `index.html` in your browser.
 
-To build once (for production):
+---
 
-```bash
-npm run build
-```
-
-## Topics Covered
-
-- Tailwind CSS utility classes
-- Responsive design (mobile-first breakpoints)
-- Flexbox and Grid layouts
-- Custom color palettes and fonts
-- Dark mode with `class` strategy
-- Hamburger menus and interactive components
-- CSS custom properties and `@apply`
-- Hamburger menu animations with CSS transforms
-- Background images and overlays
-
-## License
-
-MIT
+Built with [Tailwind CSS](https://tailwindcss.com)
